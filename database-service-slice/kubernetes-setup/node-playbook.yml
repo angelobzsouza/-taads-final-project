@@ -35,5 +35,5 @@
       become: yes
 
     - name: Acessa o cluster utilizando o token gerado pelo master
-      command: sh /vagrant/kubernetes-setup/join-command.sh
+      command: sh /vagrant/database-service-slice/kubernetes-setup/join-command.sh
       become: yes
