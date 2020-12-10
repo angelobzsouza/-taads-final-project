@@ -18,7 +18,7 @@ Vagrant.configure("2") do |config|
     master.vm.provision "ansible" do |ansible|
       ansible.playbook = "video-service-slice/kubernetes-setup/master-playbook.yml"
       ansible.extra_vars = {
-        node_ip: "192.168.10.1",
+        node_ip: "192.168.10.10",
       }
     end
   end
@@ -32,7 +32,7 @@ Vagrant.configure("2") do |config|
     node.vm.provision "ansible" do |ansible|
       ansible.playbook = "video-service-slice/kubernetes-setup/node-playbook.yml"
       ansible.extra_vars = {
-        node_ip: "192.168.10.2",
+        node_ip: "192.168.10.20",
       }
     end
   end
@@ -46,7 +46,7 @@ Vagrant.configure("2") do |config|
     node.vm.provision "ansible" do |ansible|
       ansible.playbook = "video-service-slice/kubernetes-setup/node-playbook.yml"
       ansible.extra_vars = {
-        node_ip: "192.168.10.3",
+        node_ip: "192.168.10.30",
       }
     end
   end
@@ -62,7 +62,7 @@ Vagrant.configure("2") do |config|
     master.vm.provision "ansible" do |ansible|
       ansible.playbook = "database-service-slice/kubernetes-setup/master-playbook.yml"
       ansible.extra_vars = {
-        node_ip: "192.168.20.1",
+        node_ip: "192.168.20.10",
       }
     end
   end
@@ -76,7 +76,7 @@ Vagrant.configure("2") do |config|
     node.vm.provision "ansible" do |ansible|
       ansible.playbook = "database-service-slice/kubernetes-setup/node-playbook.yml"
       ansible.extra_vars = {
-        node_ip: "192.168.20.2",
+        node_ip: "192.168.20.20",
       }
     end
   end
@@ -90,7 +90,7 @@ Vagrant.configure("2") do |config|
     node.vm.provision "ansible" do |ansible|
       ansible.playbook = "database-service-slice/kubernetes-setup/node-playbook.yml"
       ansible.extra_vars = {
-        node_ip: "192.168.20.3",
+        node_ip: "192.168.20.30",
       }
     end
   end
