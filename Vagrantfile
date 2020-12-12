@@ -1,3 +1,4 @@
+# IMAGE_NAME = "leandrocalmeida/ubuntu"
 IMAGE_NAME = "bento/ubuntu-20.04"
 N = 2
 
@@ -50,9 +51,10 @@ Vagrant.configure("2") do |config|
       }
     end
   end
-
+  # ===============================
   # DATABASE SERVICE MACHINES
   # Database Service Cluster Master
+  # ===============================
   config.vm.define "database-service-master" do |master|
     master.vm.box = IMAGE_NAME
     master.vm.network "private_network", ip: "192.168.20.10"
