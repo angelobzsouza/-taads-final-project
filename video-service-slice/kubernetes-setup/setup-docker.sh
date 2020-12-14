@@ -22,4 +22,4 @@ sudo apt-get update
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 
 #Instala nginx
-#docker run -d -p 8080:80 -v /vagrant/video-service-slice/public-html:/usr/share/nginx/html nginx
+docker run -d -p 8080:80 -v /vagrant/video-service-slice/kubernetes-setup/nginx.conf:/etc/nginx/nginx.conf nginx
