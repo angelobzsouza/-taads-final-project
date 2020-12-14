@@ -37,3 +37,12 @@
     - name: Acessa o cluster utilizando o token gerado pelo master
       command: sh /vagrant/video-service-slice/kubernetes-setup/join-command.sh
       become: yes
+
+    - name: Adiciona arquivo de configuracao
+      copy:
+        src: /vagrant/video-service-slice/kubernetes-setup/subnet.env
+        dest: /run/flannel/subnet.env
+        owner: root
+        group: root
+        mode: '0644'
+      become: yes

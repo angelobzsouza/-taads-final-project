@@ -56,9 +56,10 @@
       become: yes
 
     - name: Instala o plugin Weave para gerenciar a rede de overlay no Kubernetes
-      command: kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')&env.IPALLOC_RANGE=10.200.0.0/16"
-      # command: kubectl apply -f /vagrant/video-service-slice/kubernetes-setup/deploy.yaml
-
+      # command: kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
+      # command: kubectl apply -f /vagrant/video-service-slice/kubernetes-setup/net.yaml
+      command: kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+      
     - name: Salva o token para entrada de novos n ́os no cluster
       command: kubeadm token create --print-join-command
       register: join_command
