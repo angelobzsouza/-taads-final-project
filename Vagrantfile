@@ -16,12 +16,14 @@ Vagrant.configure("2") do |config|
     master.vm.network "forwarded_port", guest: 8080, host:3000
     master.vm.hostname = "video-service-master"
     master.vm.provision "shell", path: "video-service-slice/kubernetes-setup/setup-docker.sh"
+    master.vm.provision "shell", path: "video-service-slice/kubernetes-setup/setup-nginx-master.sh"
     master.vm.provision "ansible" do |ansible|
       ansible.playbook = "video-service-slice/kubernetes-setup/master-playbook.yml"
       ansible.extra_vars = {
         node_ip: "192.168.10.10",
       }
     end
+    master.vm.provision "shell", path: "video-service-slice/kubernetes-setup/setup-iptables.sh"
   end
 
   # Video Service Worker 1
@@ -36,6 +38,7 @@ Vagrant.configure("2") do |config|
         node_ip: "192.168.10.20",
       }
     end
+    node.vm.provision "shell", path: "video-service-slice/kubernetes-setup/setup-iptables.sh"
   end
 
   # Video Service Worker 2
@@ -50,6 +53,7 @@ Vagrant.configure("2") do |config|
         node_ip: "192.168.10.30",
       }
     end
+    node.vm.provision "shell", path: "video-service-slice/kubernetes-setup/setup-iptables.sh"
   end
   # ===============================
   # DATABASE SERVICE MACHINES

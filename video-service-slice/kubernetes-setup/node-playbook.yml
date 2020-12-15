@@ -37,24 +37,3 @@
     - name: Acessa o cluster utilizando o token gerado pelo master
       command: sh /vagrant/video-service-slice/kubernetes-setup/join-command.sh
       become: yes
-
-    - name: Configura iptables para conexao dos nodes
-      command: echo "net.bridge.bridge-nf-call-iptables=1" | tee -a /etc/sysctl.conf
-      become: yes
-
-    # - name: Copia arquivo de configuracao flannel e arruma as permissoes
-    #   command: "{{ item }}"
-    #   with_items:
-    #     - cp /vagrant/video-service-slice/kubernetes-setup/subnet.env /run/flannel/
-    #     - chown root:root /run/flannel/subnet.env
-    #     - chmod 644 /run/flannel/subnet.env
-    #   become: yes
-
-    # - name: Adiciona arquivo de configuracao
-    #   copy:
-    #     src: /vagrant/video-service-slice/kubernetes-setup/subnet.env
-    #     dest: /run/flannel/subnet.env
-    #     owner: root
-    #     group: root
-    #     mode: '0644'
-    #   become: yes
