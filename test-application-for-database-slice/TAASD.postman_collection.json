@@ -1,0 +1,51 @@
+{
+	"info": {
+		"_postman_id": "aef9eaa6-88f8-4d8b-a238-a63d42b29f43",
+		"name": "TAASD",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Test de PUT",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"testOne\": 1,\n    \"testTwo\": 2\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4001",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4001"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test de Get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4001",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4001"
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
